@@ -1,0 +1,20 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mark": "marked -i index.md -o dist/index.html",
+    "build": "mkdir dist; npm run mark; echo '<style>' >> dist/index.html; cat index.css >> dist/index.html; echo '</style>' >> dist/index.html; npm run build:pdf",
+    "build:pdf": "OUT=dist/out.pdf; playwright pdf ./dist/index.html ${OUT} --viewport-size \"1080, 1527\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "marked": "^4.1.1",
+    "playwright": "^1.27.1"
+  }
+}
